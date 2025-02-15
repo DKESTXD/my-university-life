@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css" media="screen">
+		#zju{
+			position: absolute;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+
+</head>
+<body>
+	<img src="https://s2.loli.net/2024/10/19/wuhpvPcaA8djY5k.png" id="zju">
+		<script>
+		const zju=document.getElementById("zju");
+		const w_width=window.screen.availWidth;
+		const w_height=window.screen.availHeight;
+		let width=200;
+		let height=200;
+		let vx=30;
+		let vy=30;
+		let clock1;
+		function move(){
+		width=(width+vx)%(w_width-300);
+		height=(height+vy)%(w_height-300);
+		zju.style.left=width+'px';
+		zju.style.top=height+'px';
+		}
+		function doit(){
+			clock1=setInterval(move,100);
+		}
+		function stopit(){
+			clearInterval(clock1);
+		}
+		doit();
+		zju.addEventListener('mouseover', stopit);
+		zju.addEventListener('mouseout', doit);
+	</script>
+</body>
+</html>

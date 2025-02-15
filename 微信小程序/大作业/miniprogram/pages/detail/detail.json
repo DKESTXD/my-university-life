@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "detail_page":"../../components/detail_page/detail_page"
+  }
+}

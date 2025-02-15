@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "detail_edit_page":"../../components/detail_edit_page/detail_edit_page"
+  }
+}

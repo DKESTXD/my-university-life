@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>step 6</title>
+	<style type="text/css" media="screen">
+		.card_zheng{
+
+			width: 320px;
+			height:180px;
+			position:absolute;
+			background:linear-gradient(to bottom right,yellow, #8be9f6) ;
+		}
+		.card_fan{
+
+			width: 320px;
+			height:180px;
+			position:absolute;
+			background:linear-gradient(to bottom left,yellow, #8be9f6) ;
+			top:200px;
+		}
+		h1{
+			position: relative;
+			font-size: 20px;
+			top:20px;
+			left:-100px;
+		}
+		#职业{
+			position: relative;
+			font-size: 15px;
+			top:20px;
+			left:-100px;
+		}
+		#电话号{
+			position: relative;
+			font-size: 15px;
+			left:-75px;
+			top:15px;
+		}
+		#其他{
+			position: relative;
+			font-size: 15px;
+			left:-31px;
+			top:15px;
+		}
+		#反面{
+			position: relative;
+			font-size: 15px;
+			left:50px;
+			top:30px;
+		}
+		img{
+			position:relative;
+			width:60px;
+			left:80px;
+			top:-120px;
+		}
+	</style>
+</head>
+<body>
+	<div class="card_zheng" align="center" id="zju">
+		<h1>姓名：LFK</h1>
+		<h2 id="职业">职业：大学生</h2>
+		<h2 id="电话号">电话：177332727**</h2>	
+		<h2 id="其他">其他：名片配色真的很像pycharm</h2>
+		<img src="https://s2.loli.net/2024/10/01/RkUVq7tCbE54oaT.png">
+	</div>
+	<div class="card_fan">
+		<h2 id="反面">浙江大学vx小程序课专属名片</h2>
+	</div>
+			<script>
+		const zju=document.getElementById("zju");
+		const w_width=window.screen.availWidth;
+		const w_height=window.screen.availHeight;
+		let width=200;
+		let height=200;
+		let vx=30;
+		let vy=30;
+		let clock1;
+		function move(){
+		width=(width+vx)%(w_width-300);
+		height=(height+vy)%(w_height-300);
+		zju.style.left=width+'px';
+		zju.style.top=height+'px';
+		}
+		function doit(){
+			clock1=setInterval(move,100);
+		}
+		function stopit(){
+			clearInterval(clock1);
+		}
+		doit();
+		zju.addEventListener('mouseover', stopit);
+		zju.addEventListener('mouseout', doit);
+	</script>
+</body>
+</html>

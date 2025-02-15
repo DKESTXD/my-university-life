@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>step 2</title>
+	</head>
+	<body>
+		<form action="step2_submit" method="get" accept-charset="utf-8" id="step">
+		<table border="1" align="center" style="empty-cells:inherit;">
+				<caption><a href="https://www.zju.edu.cn/"><b>注册信息</b></a></caption>
+				<tr>
+					<td rowspan="5" ><b>基本信息</b></td>
+					<td>用户姓名：</td>
+					<td colspan="2">
+						<input type="text" name="usersname" style="width: 98%;">
+					</td>
+				</tr>
+				<tr>
+					<td>真实姓名：</td>
+					<td colspan="2">
+						<input type="text" name="realname" style="width: 98%;">
+					</td>
+				</tr>
+				<tr>
+					<td>密&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp码：</td>
+					<td colspan="2">
+						<input type="password" name="passwords" style="width: 98%;">
+					</td>
+				</tr>
+				<tr>
+					<td>确认密码：</td>
+					<td colspan="2">
+						<input type="password" name="passwordsagain" style="width: 98%;">
+					</td>
+				</tr>
+				<tr>
+					<td>性&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别：</td>
+					<td colspan="2">
+					<input type="radio" name="sex" value="male">男
+					<input type="radio" name="sex" value="female">女
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" align="center"><b>通信信息</b></td>
+				</tr>
+				<tr>
+					<td>手机号码:</td>
+					<td>
+						<input type="text" name="phone">
+					</td>
+					<td>电子邮箱：</td>
+					<td>
+						<input type="text" name="email">
+					</td>
+				</tr>
+				<tr>
+					<td>居住地址：</td>
+					<td colspan="3">
+						<input type="text" name="address" style="width:98%;">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" align="center"><b>额外信息</b></td>
+				</tr>	
+				<tr>
+					<td>爱&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp好</td>
+					<td colspan="3">
+						<input type="checkbox" name="habit" value="baskerball">篮球
+						<input type="checkbox" name="habit" value="football">足球
+						<input type="checkbox" name="habit" value="ping-pongball">乒乓球
+					</td>
+				</tr>
+		</table>
+		</form>
+	</body>
+	</html>	

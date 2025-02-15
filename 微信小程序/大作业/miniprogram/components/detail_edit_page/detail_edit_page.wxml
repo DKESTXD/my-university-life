@@ -1,0 +1,123 @@
+<view class="container">
+
+<!--顶部“取消”与“确定”-->
+ <view class="header">
+    <view class="cancel" bindtap="cancel_tap">取消</view>
+    <text class="logo">编辑日程</text>
+    <view class="finish" bindtap="testto">完成</view>
+  </view>
+  
+<view class="textbro">
+<!--日程标题-->
+  <view class="title">
+    <input 
+    type="text" 
+    placeholder="请输入标题..." 
+    value="{{values.titleValue}}"  
+    bindinput="titleInput"
+    class="input-text"/>
+  </view>
+
+<!--日程正文-->
+  <view class="textarea-container">
+  <textarea 
+    class="textarea" 
+    placeholder="请输入内容..." 
+    maxlength="300" 
+    bindinput="textInput" 
+    value="{{values.textValue}}"
+  ></textarea>
+  <view class="length">
+    {{values.inputLength}}/300
+  </view>
+</view>
+</view>
+<!--紧急程度 五颗星-->
+<view class="urgent-container">
+  <view class="urgent-container-plus">
+  <text>紧急程度:</text>
+  <view class="star-container">
+    <image class="star" src="{{values.star1==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}" bindtap="star1_tap"/>
+    <image class="star" src="{{values.star2==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}" bindtap="star2_tap"/>
+    <image class="star" src="{{values.star3==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}" bindtap="star3_tap"/>
+    <image class="star" src="{{values.star4==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}" bindtap="star4_tap"/>
+    <image class="star" src="{{values.star5==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}" bindtap="star5_tap"/>
+  </view>
+</view>
+  <view>
+  <text class="urgent-text">{{values.urgent_statue}}</text>
+  </view>
+
+</view>
+
+<!--是否提醒 与 循环设置-->
+<view class="container2">
+  <view class="reminder-container">
+    <text>是否提醒</text>
+    <switch checked="{{values.reminder}}" bindchange="reminder_change" />
+  </view>
+  <view class="setting-container" bindtap="showModal">
+    <text class="cycletxt">循环设置</text>
+    <text class="setting-value">{{values.settingValue}}</text>
+  </view>
+</view>
+
+<!--循环设置的弹窗-->
+<view class="modal" hidden="{{!showModalView}}">
+  <view class="modal-content">
+    <view class="picker-item" bindtap="selectSetting_only" >仅仅本次</view>
+    <view class="picker-item" bindtap="selectSetting_weekly" >每周一次</view>
+    <view class="picker-item-final" bindtap="selectSetting_monthly">每月一次</view>
+  </view>
+</view>
+
+<!--取消 选项的弹窗-->
+<view class="modalCancel" hidden="{{!showModalViewCancel}}">
+  <view class="modal-content-cancel">
+    <text>确认退出？内容将不会保留</text>
+    <view class="modal-buttons">
+      <view class="button" bindtap="cancel">取消</view>
+      <view class="divider"></view>
+      <view class="button confirm" bindtap="confirm_edit">确认退出</view>
+    </view>
+  </view>
+</view>
+
+<!--截止时间-->
+<view class="ddl-container">
+  <view class="ddl-text">
+  截止时间:
+  </view>
+  <!--时间选项的滚轮-->
+  <view class="new-date-pick-bg"  wx:if="{{propDate}}" bindtap="closePick"></view>
+<view class="new-date-pick">
+    <view class="new-date-pick-input" bindtap="openPick">
+      <view>{{values.timeInput == '' ? '选择时间' : values.timeInput}}</view>
+      <icon catchtap="clearPick" class="new-date-pick-input-icon" type="cancel" size="23" color="#549EFD"></icon>
+    </view>
+    <view class="new-date-pick-body" wx:if="{{propDate}}">
+      <view class="new-date-pick-main">
+        <picker-view indicator-class='new-date-pick-col' indicator-style="height: 56rpx;" style="width: 100%; height: 276rpx;" value="{{values.value}}" bindchange="bindChange">
+          <picker-view-column>
+            <view wx:for="{{years}}" class="{{ values.year === item ? 'new-date-pick-col-text' : '' }}" wx:key="years" style="line-height: 56rpx; text-align: center;">{{item}}年</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{months}}" class="{{ values.month === item ? 'new-date-pick-col-text' : '' }}" wx:key="months" style="line-height: 56rpx; text-align: center;">{{item}}月</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{days}}" class="{{ values.day === item ? 'new-date-pick-col-text' : '' }}" wx:key="days" style="line-height: 56rpx; text-align: center;">{{item}}日</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{hours}}" class="{{ values.hour === item ? 'new-date-pick-col-text' : '' }}" wx:key="hours" style="line-height: 56rpx; text-align: center;">{{item}}时</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{minutes}}" class="{{ values.minute === item ? 'new-date-pick-col-text' : '' }}" wx:key="minutes" style="line-height: 56rpx; text-align: center;">{{item}}分</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
+  </view>
+</view>
+
+</view>
+  

@@ -1,0 +1,81 @@
+<view class="container">
+
+<!--顶部“返回”与“确定”-->
+ <view class="header">
+    <view class="cancel" bindtap="testto">返回</view>
+    <text class="logo">日程详情</text>
+    <view class="finish" bindtap="edit">编辑</view>
+  </view>
+
+<view class="textbro">
+<!--日程标题-->
+<view class="title">
+  <text class="input-text">{{titleValue}}</text>
+</view>
+
+<!--日程正文-->
+  <view class="textarea-container">
+  <text 
+    class="textarea" 
+  >{{textValue}}</text>
+  <view class="length">
+    {{inputLength}}/300
+  </view>
+</view>
+</view>
+<!--紧急程度 五颗星-->
+<view class="urgent-container">
+  <view class="urgent-container-plus">
+  <text>紧急程度:</text>
+  <view class="star-container">
+    <image class="star" src="{{star1==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}"/>
+    <image class="star" src="{{star2==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}"/>
+    <image class="star" src="{{star3==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}"/>
+    <image class="star" src="{{star4==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}"/>
+    <image class="star" src="{{star5==false?'/image_con/star_nottab.png':'/image_con/star_tabbed.png'}}"/>
+  </view>
+</view>
+  <view>
+  <text class="urgent-text">{{urgent_statue}}</text>
+  </view>
+
+</view>
+
+<!--是否提醒 与 循环设置-->
+<view class="container2">
+  <view class="reminder-container">
+    <text>是否提醒</text>
+    <switch checked="{{reminder}}" disabled="true" />
+  </view>
+  <view class="setting-container">
+    <text class="cycletxt">循环设置</text>
+    <text class="setting-value">{{settingValue}}</text>
+  </view>
+</view>
+
+<!--截止时间-->
+<view class="ddl-container">
+  <view class="ddl-text">
+  截止时间:
+  </view>
+  <!--时间选项的滚轮-->
+  <view class="new-date-pick-bg"  wx:if="{{propDate}}"></view>
+<view class="new-date-pick">
+    <view class="new-date-pick-input">
+      <view>{{timeInput == '' ? '无截止' : timeInput}}</view>
+    </view>
+  </view>
+</view>
+<button bindtap="deleteModal" class="delete">删除</button>
+<view class="modalCancel" hidden="{{!showModalViewCancel}}">
+  <view class="modal-content-cancel">
+    <text>确定要删除此日程吗</text>
+    <view class="modal-buttons">
+      <view class="button" bindtap="cancel">取消</view>
+      <view class="divider"></view>
+      <view class="button confirm" bindtap="delete">确认删除</view>
+    </view>
+  </view>
+</view>
+</view>
+  

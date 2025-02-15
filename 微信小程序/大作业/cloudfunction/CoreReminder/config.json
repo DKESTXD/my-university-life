@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "openapi": [
+    ]
+  },
+  "triggers": [
+    {
+      "name": "myTimerTrigger",
+      "type": "timer",
+      "config": "0 * * * * *"  
+    }
+  ]
+}

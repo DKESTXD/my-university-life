@@ -1,0 +1,1 @@
+<detail_edit_page values="{{values}}" bind:updatevalues="updateValues"></detail_edit_page>
