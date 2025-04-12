@@ -1,0 +1,15 @@
+epsilon_double=1;
+epsilon_single=1;
+epsilon_double=double(epsilon_double);
+epsilon_single=single(epsilon_single);
+while(1+epsilon_double)>1
+    epsilon_double=epsilon_double/2;
+end
+while(1+epsilon_single)>1
+    epsilon_single=epsilon_single/2;
+end
+epsilon_single=epsilon_single*2;
+epsilon_double=epsilon_double*2;
+disp(['单精度为：',num2str(epsilon_single)]);
+disp(['双精度为：',num2str(epsilon_double)]);
+disp(['内置精度为：',num2str(eps)]);
