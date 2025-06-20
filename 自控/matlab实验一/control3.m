@@ -1,0 +1,12 @@
+s=tf('s');
+G=1/(s^2+s+1);
+[y,t]=step(G);
+info=stepinfo(G);
+fprintf("上升时间%.8f\n",info.RiseTime);
+fprintf("超调量%.8f%%\n",info.Overshoot);
+fprintf("峰值时间%.8f\n",info.PeakTime);
+fprintf("稳态时间%.8f\n",info.SettlingTime);
+figure;
+plot(t, y);
+title('单位阶跃响应');
+grid on;
